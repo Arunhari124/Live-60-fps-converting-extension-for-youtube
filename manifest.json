@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "SmoothVision",
+  "version": "0.1.0",
+  "description": "TV-style motion smoothing for YouTube using local WebGL2 frame interpolation. No video leaves your machine.",
+  "permissions": ["storage"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "SmoothVision" },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["shared.js", "shaders.js", "interpolation.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>SmoothVision test</title>
+<style>body{background:#0b1118;color:#d7e6f2;font:14px system-ui;max-width:900px;margin:20px auto;padding:0 12px}
+#stage{position:relative;width:854px;max-width:100%;background:#000}#testVideo{display:block;width:100%}
+.bar{margin:10px 0;display:flex;gap:12px;flex-wrap:wrap;align-items:center}select,button{background:#121b26;color:#d7e6f2;border:1px solid #1f2d3d;border-radius:6px;padding:5px 9px}
+pre{background:#121b26;padding:10px;border-radius:8px;font-size:12px}</style></head>
+<body><h2>SmoothVision local test</h2>
+<div id="stage"><video id="testVideo" controls muted loop></video></div>
+<div class="bar"><input type="file" id="file" accept="video/*"><button id="synth">Synthetic 24 fps test pattern</button></div>
+<div class="bar">
+ <label><input type="checkbox" id="en"> Enable</label>
+ <select id="mt"><option value="flow">Optical Flow</option><option value="blend">Frame Blending</option><option value="dup">Frame Duplication</option></select>
+ <select id="sm"><option>low</option><option selected>medium</option><option>high</option></select>
+ <select id="tf"><option>30</option><option>48</option><option selected>60</option><option>90</option><option>120</option></select>
+</div>
+<pre id="st">—</pre>
+<script src="shared.js"></script><script src="shaders.js"></script><script src="interpolation.js"></script><script src="content.js"></script><script src="test.js"></script>
+</body></html>

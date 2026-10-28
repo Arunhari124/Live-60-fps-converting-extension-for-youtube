@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head>
+<body>
+<header><div class="logo">Smooth<span>Vision</span></div>
+  <label class="switch"><input type="checkbox" id="enabled"><span></span></label></header>
+<div id="msg" class="msg"></div>
+
+<section>
+  <div class="row"><label>Motion Smoothing</label>
+    <div class="seg" id="smoothing"><button data-v="off">Off</button><button data-v="low">Low</button><button data-v="medium">Medium</button><button data-v="high">High</button></div></div>
+  <div class="row"><label>Target FPS <small>(cap)</small></label>
+    <select id="targetFps"><option>30</option><option>48</option><option>60</option><option>90</option><option>120</option></select></div>
+  <div class="row"><label>Method</label>
+    <select id="method"><option value="flow">Optical Flow (block-matching)</option><option value="blend">Frame Blending</option><option value="dup">Frame Duplication</option></select></div>
+  <div class="row"><label>Performance</label>
+    <select id="performance"><option value="performance">Performance (720p, light)</option><option value="balanced">Balanced</option><option value="quality">Quality (heavier)</option></select></div>
+  <div class="row"><label>Auto-lower quality if slow</label><input type="checkbox" id="autoDegrade"></div>
+</section>
+
+<section class="stats">
+  <div><span>Active mode</span><b id="mode">—</b></div>
+  <div><span>Source FPS</span><b id="src">—</b></div>
+  <div><span>Output FPS (measured)</span><b id="out">—</b></div>
+  <div><span>Display refresh</span><b id="hz">—</b></div>
+  <div><span>GPU latency (polled)</span><b id="gpu">—</b></div>
+  <div><span>CPU submit time</span><b id="cpu">—</b></div>
+  <div><span>Skipped / missed / late</span><b id="drop">—</b></div>
+  <div><span>GPU acceleration</span><b id="accel">—</b></div>
+</section>
+<p class="note" id="cap"></p>
+
+<details><summary>Diagnostics</summary><pre id="diag">—</pre></details>
+<footer><button id="reset">Reset to default</button><a href="#" id="opts">Options</a></footer>
+<script src="shared.js"></script><script src="popup.js"></script>
+</body></html>
